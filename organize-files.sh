@@ -2,9 +2,15 @@
 
 DIRECTORY=all-data-by-state
 if [ ! -d "$DIRECTORY" ]; then
-	unzip All\ Data\ by\ State.zip -d all-data-by-state
+	unzip All\ Data\ by\ State.zip
+	mv All\ Data\ by\ State all-data-by-state
 fi
 
-for i in `ls -lR all-data-by-state/ | grep csv | cut -d ' ' -f 12`
-	do echo "$i"
-done
+DIRECTORY=__MACOSX
+if [ -d "$DIRECTORY" ]; then
+	rm -rf __MACOSX
+fi
+
+#for i in `ls -R all-data-by-state/* | grep csv`
+#	do echo "asdf $i"
+#done
